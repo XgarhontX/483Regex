@@ -8,8 +8,9 @@ public class Main {
     private static final String string_SSN = "SSN";
     private static final String string_USPhone = "US Phone #";
     private static final String string_Email = "Email Address";
-    private static final String string_NameOnRoster = "Name on a class roster (\"Last name, First name, MI\")";
+    private static final String string_NameOnRoster = "Name on a class roster (\"LastName, FirstName, MI\")";
     private static final String string_Date = "Date (\"MM-DD-YYYY\" or \"MM/DD/YYYY\")";
+    private static final String string_CityState = "Location (\"City, State ZipCode\")";
     private static final Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -29,6 +30,7 @@ public class Main {
         System.out.println("3) " + string_Email);
         System.out.println("4) " + string_NameOnRoster);
         System.out.println("5) " + string_Date);
+        System.out.println("6) " + string_CityState);
         System.out.println("0) Exit");
         System.out.print(">");
         int selection = Integer.parseInt(in.nextLine());
@@ -77,6 +79,13 @@ public class Main {
                     String year = "[0-9]{2}";
                     response = doRegex(
                             monthday + seperate + monthday + year + "(?!.)",
+                            s
+                    );
+                    break;
+                case 6: //TODO check valid dates
+                    s = promptForString("a " + string_CityState);
+                    response = doRegex(
+                            "" + "(?!.)",
                             s
                     );
                     break;
