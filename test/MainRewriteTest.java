@@ -53,12 +53,13 @@ class MainRewriteTest {
     }
 
     @Test
-    void regex5Date() {
+    void regex5Date() { //MM-DD-YYYY
         System.out.println("\nregex5Date" + "------------------------------");
         assertEquals(1, MainRewrite.regex5Date("01-01-2023"));
         assertEquals(1, MainRewrite.regex5Date("01/01/2023"));
         assertEquals(1, MainRewrite.regex5Date("1-1-2023"));
         assertEquals(1, MainRewrite.regex5Date("1/1/2023"));
+        assertEquals(0, MainRewrite.regex5Date("13/1/2023"));
         assertEquals(0, MainRewrite.regex5Date("1-1/2023"));
         assertEquals(0, MainRewrite.regex5Date("1/1-2023"));
     }
@@ -83,5 +84,48 @@ class MainRewriteTest {
         assertEquals(0, MainRewrite.regex7CityState("Tacoma, WA 1234"));
         assertEquals(0, MainRewrite.regex7CityState("Tacoma WA 12345"));
         assertEquals(0, MainRewrite.regex7CityState("Tacoma, WA 1234-1234"));
+        assertEquals(0, MainRewrite.regex7CityState("Tacoma, WZ 12345"));
+    }
+
+    @Test
+    void regex9USMoney() {
+        System.out.println("\nregex9USMoney" + "------------------------------");
+        assertEquals(1, MainRewrite.regex9USMoney("$123,456,789.23"));
+        assertEquals(1, MainRewrite.regex9USMoney("123,456,789.23"));
+        assertEquals(1, MainRewrite.regex9USMoney("$123456789.23"));
+        assertEquals(0, MainRewrite.regex9USMoney("$123456,789.23"));
+        assertEquals(0, MainRewrite.regex9USMoney("$123,456789.23"));
+        assertEquals(1, MainRewrite.regex9USMoney("$23,456,789.23"));
+        assertEquals(1, MainRewrite.regex9USMoney("$2,456,789.23"));
+        assertEquals(1, MainRewrite.regex9USMoney("$456,789.23"));
+        assertEquals(1, MainRewrite.regex9USMoney("$56,789.23"));
+        assertEquals(1, MainRewrite.regex9USMoney("$6,789.23"));
+        assertEquals(1, MainRewrite.regex9USMoney("$789.23"));
+        assertEquals(1, MainRewrite.regex9USMoney("$89.23"));
+        assertEquals(1, MainRewrite.regex9USMoney("$9.23"));
+        assertEquals(1, MainRewrite.regex9USMoney("$0.23"));
+        assertEquals(1, MainRewrite.regex9USMoney("$1,000"));
+        assertEquals(0, MainRewrite.regex9USMoney("$1,000.0"));
+        assertEquals(0, MainRewrite.regex9USMoney("$123,456,789.2"));
+        assertEquals(0, MainRewrite.regex9USMoney("$123,45,789.23"));
+        assertEquals(0, MainRewrite.regex9USMoney("$123,456,78.23"));
+    }
+
+    @Test
+    void regex10URL() {
+        System.out.println("\nregex10URL" + "------------------------------");
+        assertEquals(1, MainRewrite.regex10URL("https://www.google.com"));
+        assertEquals(1, MainRewrite.regex10URL("www.google.com"));
+    }
+
+    @Test
+    void regex12IonOdd() {
+        System.out.println("\nregex12IonOdd" + "------------------------------");
+        assertEquals(1, MainRewrite.regex12IonOdd("ion"));
+        assertEquals(1, MainRewrite.regex12IonOdd("quion"));
+        assertEquals(1, MainRewrite.regex12IonOdd("million"));
+        assertEquals(0, MainRewrite.regex12IonOdd("Trillion"));
+        assertEquals(0, MainRewrite.regex12IonOdd("POTION"));
+        assertEquals(0, MainRewrite.regex12IonOdd("lion"));
     }
 }
