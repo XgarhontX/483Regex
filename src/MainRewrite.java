@@ -1,3 +1,7 @@
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -27,13 +31,26 @@ public class MainRewrite {
     }
 
     public static int regex5Date(String matcherString) { //TODO helper to valid date
-        String month = "(0[1-9]|1[12]|[0-9])";
-        String separate = "(?<separator>[- | /])";
-        String day = "(0[1-9])";
+        String month = "(?<month>0[1-9]|1[12]|[1-9])";
+        String separate = "(?<separator>[-|/])";
+        String day = "(?<day>0[1-9]|[12][0-9]|[3[01]]|[1-9])";
         String separate1 = "\\k<separator>";
-        String year = "[0-9]{4}";
+        String year = "(?<year>[0-9]+)";
         Pattern pattern = Pattern.compile("^" + month + separate + day + separate1 + year + "$"); //MM-DD-YYYY
-        return doRegex(pattern.matcher(matcherString.trim()), matcherString);
+        Matcher matcher = pattern.matcher(matcherString.trim());
+        if (doRegex(matcher, matcherString) == 1) {
+            DateTimeFormatter df = DateTimeFormatter.ofPattern("M-d-y", Locale.US);
+//            SimpleDateFormat df = new SimpleDateFormat("M-d-y");
+//            df.setLenient(false);
+            try {
+                df.parse(matcherString.replaceAll("/", "-"), new ParsePosition(0));
+                return 1;
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+                return 0;
+            }
+        }
+        return 0;
     }
 
     public static int regex6HouseAddress(String matcherString) {
@@ -73,8 +90,6 @@ public class MainRewrite {
         Pattern pattern = Pattern.compile("^(..)*[i][o][n]$", Pattern.CASE_INSENSITIVE);
         return doRegex(pattern.matcher(matcherString.trim()), matcherString);
     }
-
-
 
     public static int doRegex(Matcher matcher, String matcherString) {
         int found = 0;

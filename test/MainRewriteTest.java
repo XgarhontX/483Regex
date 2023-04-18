@@ -59,7 +59,11 @@ class MainRewriteTest {
         assertEquals(1, MainRewrite.regex5Date("01/01/2023"));
         assertEquals(1, MainRewrite.regex5Date("1-1-2023"));
         assertEquals(1, MainRewrite.regex5Date("1/1/2023"));
+        assertEquals(0, MainRewrite.regex5Date("02/29/2001"));
         assertEquals(0, MainRewrite.regex5Date("13/1/2023"));
+        assertEquals(0, MainRewrite.regex5Date("12/32/2023"));
+        assertEquals(0, MainRewrite.regex5Date("99/99/2023"));
+        assertEquals(0, MainRewrite.regex5Date("0/0/2023"));
         assertEquals(0, MainRewrite.regex5Date("1-1/2023"));
         assertEquals(0, MainRewrite.regex5Date("1/1-2023"));
     }
@@ -67,10 +71,13 @@ class MainRewriteTest {
     @Test
     void regex6HouseAddress() {
         System.out.println("\nregex6HouseAddress" + "------------------------------");
-        assertEquals(1, MainRewrite.regex6HouseAddress("901 E 72nd St"));
-        assertEquals(1, MainRewrite.regex6HouseAddress("901 E. 72nd St."));
+        assertEquals(1, MainRewrite.regex6HouseAddress("910 S 77nd St"));
+        assertEquals(1, MainRewrite.regex6HouseAddress("910 S. 77nd St."));
+        assertEquals(1, MainRewrite.regex6HouseAddress("910 S. 77nd Blvd."));
+        assertEquals(1, MainRewrite.regex6HouseAddress("910 s. 77nd blvd"));
         assertEquals(1, MainRewrite.regex6HouseAddress("84 South Rock Maple Ave."));
         assertEquals(1, MainRewrite.regex6HouseAddress("84 South Rock Maple Ave."));
+        assertEquals(1, MainRewrite.regex6HouseAddress("84 South Rock Maple Avenue"));
         assertEquals(0, MainRewrite.regex6HouseAddress("84 South Rock Maple Aven."));
     }
 
