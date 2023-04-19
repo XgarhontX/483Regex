@@ -22,7 +22,6 @@ public class MainRewrite {
         String domain = "[a-z0-9]+\\.";
         String topDomain = "[a-z0-9.\\.]+(?!\\.)[a-z0-9]";
         Pattern pattern = Pattern.compile("^" + name + "@" + domain + topDomain + "$", Pattern.CASE_INSENSITIVE);
-        System.out.println(pattern.pattern());
         return doRegex(pattern.matcher(matcherString.trim()), matcherString);
     }
 
@@ -100,10 +99,15 @@ public class MainRewrite {
         return doRegex(pattern.matcher(matcherString.trim()), matcherString);
     }
 
+    //https://www.ibm.com/docs/en/cics-ts/5.2?topic=concepts-components-url
     public static int regex10URL(String matcherString) { //(?(?=regex)then|else)
-        String protocol = "((?=.*{4}http)[s]?://)|(?!.\\.)(?=\\.*).+";
-        String domain = ".*";
-        Pattern pattern = Pattern.compile("^" + protocol + domain + "$", Pattern.CASE_INSENSITIVE);
+        String protocol = "((http[s]?://)|(?!^.*://.*$))";
+        String hostName = "([a-z0-9].+)(\\.[a-z0-9].+).+";
+        String port = "(:[0-9]+)?";
+        String path = "(/.*)?";
+        String query = "(\\?.*)?";
+        Pattern pattern = Pattern.compile("^" + protocol + hostName + port + path + query + "$", Pattern.CASE_INSENSITIVE);
+        System.out.println(pattern.pattern());
         return doRegex(pattern.matcher(matcherString.trim()), matcherString);
     }
 
