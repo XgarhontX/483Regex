@@ -34,6 +34,9 @@ class MainRewriteTest {
         assertEquals(1, MainRewrite.regex2USPhone("253123-1234"));
         assertEquals(1, MainRewrite.regex2USPhone("253 123-1234"));
         assertEquals(1, MainRewrite.regex2USPhone("(253)1231234"));
+        assertEquals(0, MainRewrite.regex2USPhone("(253)12341234"));
+        assertEquals(0, MainRewrite.regex2USPhone("253 123 a234"));
+        assertEquals(1, MainRewrite.regex2USPhone("1 253 123 1234"));
     }
 
     @Test
@@ -47,10 +50,11 @@ class MainRewriteTest {
         assertEquals(0, MainRewrite.regex3Email("@gmail.com"));
         assertEquals(0, MainRewrite.regex3Email("bruhgmail.com"));
         assertEquals(0, MainRewrite.regex3Email("bruh@.com"));
+        assertEquals(0, MainRewrite.regex3Email("bruhgmail.com"));
 
         assertEquals(0, MainRewrite.regex3Email("&@gmail.com"));
         assertEquals(0, MainRewrite.regex3Email("!bruh@gmail.com"));
-        assertEquals(0, MainRewrite.regex3Email("bruh!@gmail.com"));
+        assertEquals(0, MainRewrite.regex3Email("bruh$@gmail.com"));
         assertEquals(0, MainRewrite.regex3Email("br!!uh@gmail.com"));
     }
 

@@ -5,7 +5,8 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class MainRewrite { //https://www.ssa.gov/history/ssn/geocard.html#:~:text=The%20nine%2Ddigit%20SSN%20is,digits%20is%20the%20Serial%20Number
+public class MainRewrite {
+    //https://www.ssa.gov/history/ssn/geocard.html#:~:text=The%20nine%2Ddigit%20SSN%20is,digits%20is%20the%20Serial%20Number
     public static int regex1SSN(String matcherString) { //(000-999)-(01-99)-(0001-9999)
         Pattern pattern = Pattern.compile("^\\d{3}(?<separator>(-|\\s?))((?!01)\\d\\d)\\k<separator>(((?!0001))\\d\\d\\d\\d)$"); //neg lookahead https://www.regular-expressions.info/lookaround.html
         return doRegex(pattern.matcher(matcherString.trim()), matcherString);
@@ -17,10 +18,11 @@ public class MainRewrite { //https://www.ssa.gov/history/ssn/geocard.html#:~:tex
     }
 
     public static int regex3Email(String matcherString) { //TODO https://knowledge.validity.com/hc/en-us/articles/220560587-What-are-the-rules-for-email-address-syntax-
-        String name = "(?!.[^a-z0-9]).?(?!.+[^a-z0-9]{2,}).+(?!.[^a-z0-9]).?";
-        String domain = "[a-z0-9]+.";
+        String name = "(?!^[^a-z0-9].*@.*$)(?!^.*[^a-z0-9]@.*$)(?!.*[^a-z0-9]{2,}.*@.*)(?!^[^a-z0-9]@.*$).+";
+        String domain = "[a-z0-9]+\\.";
         String topDomain = "[a-z0-9.\\.]+(?!\\.)[a-z0-9]";
         Pattern pattern = Pattern.compile("^" + name + "@" + domain + topDomain + "$", Pattern.CASE_INSENSITIVE);
+        System.out.println(pattern.pattern());
         return doRegex(pattern.matcher(matcherString.trim()), matcherString);
     }
 
