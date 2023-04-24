@@ -47,10 +47,10 @@ public class Main {
      * @param matcherString
      * @return
      */
-    public static int regex3Email(String matcherString) { //TODO https://knowledge.validity.com/hc/en-us/articles/220560587-What-are-the-rules-for-email-address-syntax-
+    public static int regex3Email(String matcherString) {
         String name = "(?!^[^a-z0-9].*@.*$)(?!^.*[^a-z0-9]@.*$)(?!.*[^a-z0-9]{2,}.*@.*)(?!^[^a-z0-9]@.*$).+";
         String domain = "[a-z0-9]+\\.";
-        String topDomain = "[a-z0-9.\\.]+(?!\\.)[a-z0-9]";
+        String topDomain = "[a-z0-9.\\.]*(?!\\.)[a-z0-9]";
         Pattern pattern = Pattern.compile("^" + name + "@" + domain + topDomain + "$", Pattern.CASE_INSENSITIVE);
         return doRegex(pattern.matcher(matcherString.trim()), matcherString);
     }
