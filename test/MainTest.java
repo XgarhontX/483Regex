@@ -48,6 +48,9 @@ class MainTest {
         assertEquals(1, Main.regex2USPhone("(253)1231234"));
         assertEquals(0, Main.regex2USPhone("(253)12341234"));
         assertEquals(0, Main.regex2USPhone("253 123 a234"));
+        assertEquals(0, Main.regex2USPhone("253 1a3 1234"));
+        assertEquals(0, Main.regex2USPhone("253a123Z1234"));
+        assertEquals(0, Main.regex2USPhone("2t31231234"));
         assertEquals(1, Main.regex2USPhone("1 253 123 1234"));
     }
 
@@ -58,7 +61,10 @@ class MainTest {
     void regex3Email() {
         System.out.println("\nregex3Email" + "------------------------------");
         assertEquals(1, Main.regex3Email("bruh@gmail.com"));
+        assertEquals(1, Main.regex3Email("a@b.c.d"));
+        assertEquals(1, Main.regex3Email("a@b.c"));
         assertEquals(1, Main.regex3Email("bruh@gmail.com.gov.co"));
+        assertEquals(1, Main.regex3Email("xgarhontx123.coolbeans@gmail.com.gov.co"));
         assertEquals(0, Main.regex3Email("bruh@gmail.com.gov.co."));
         assertEquals(1, Main.regex3Email("b@gmail.com"));
         assertEquals(0, Main.regex3Email("bruh@gmail."));
@@ -66,7 +72,6 @@ class MainTest {
         assertEquals(0, Main.regex3Email("bruhgmail.com"));
         assertEquals(0, Main.regex3Email("bruh@.com"));
         assertEquals(0, Main.regex3Email("bruhgmail.com"));
-
         assertEquals(0, Main.regex3Email("&@gmail.com"));
         assertEquals(0, Main.regex3Email("!bruh@gmail.com"));
         assertEquals(0, Main.regex3Email("bruh$@gmail.com"));
