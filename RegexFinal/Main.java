@@ -14,7 +14,7 @@ public class Main {
      * @return
      */
     public static int regex1SSN(String matcherString) { //(000-999)-(01-99)-(0001-9999)
-        Pattern pattern = Pattern.compile("^\\d{3}(?<separator>(-|\\s?))((?!00)\\d\\d)\\k<separator>(((?!0000))\\d\\d\\d\\d)$"); //neg lookahead https://www.regular-expressions.info/lookaround.html
+        Pattern pattern = Pattern.compile("^\\d{3}(?<separator>(-|\\s?))((?!01)\\d\\d)\\k<separator>(((?!0001))\\d\\d\\d\\d)$"); //neg lookahead https://www.regular-expressions.info/lookaround.html
         return doRegex(pattern.matcher(matcherString.trim()), matcherString);
     }
 

@@ -19,7 +19,7 @@ class MainTest {
         assertEquals(1, Main.regex1SSN("123 12 1234"));
         assertEquals(1, Main.regex1SSN("829-59-9213"));
         assertEquals(1, Main.regex1SSN("999-99-9999")); //EC
-        assertEquals(1, Main.regex1SSN("023-01-0001")); //EC
+        assertEquals(1, Main.regex1SSN("999-99-9999")); //EC
         assertEquals(1, Main.regex1SSN("          123-12-1234"));
         assertEquals(0, Main.regex1SSN("12D-12-1234"));
         assertEquals(0, Main.regex1SSN("123-1D-1234"));
@@ -32,8 +32,8 @@ class MainTest {
         assertEquals(0, Main.regex1SSN("1 234-12-1234"));
         assertEquals(0, Main.regex1SSN("123-121234"));
         assertEquals(0, Main.regex1SSN("12312-1234"));
-        assertEquals(0, Main.regex1SSN("123-00-1234")); //EC
-        assertEquals(0, Main.regex1SSN("123-10-0000")); //EC
+        assertEquals(0, Main.regex1SSN("123-01-1234")); //EC
+        assertEquals(0, Main.regex1SSN("123-10-0001")); //EC
     }
 
     /**

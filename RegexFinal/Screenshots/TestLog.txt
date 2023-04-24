@@ -1,0 +1,205 @@
+C:\Users\Xgarh\.jdks\openjdk-20\bin\java.exe -ea -Didea.test.cyclic.buffer.size=1048576 "-javaagent:D:\DIE Software\IntelliJU\lib\idea_rt.jar=53953:D:\DIE Software\IntelliJU\bin" -Dfile.encoding=UTF-8 -classpath "C:\Users\Xgarh\.m2\repository\org\junit\platform\junit-platform-launcher\1.7.2\junit-platform-launcher-1.7.2.jar;C:\Users\Xgarh\.m2\repository\org\junit\platform\junit-platform-engine\1.7.2\junit-platform-engine-1.7.2.jar;C:\Users\Xgarh\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.7.2\junit-jupiter-engine-5.7.2.jar;D:\DIE Software\IntelliJU\lib\idea_rt.jar;D:\DIE Software\IntelliJU\plugins\junit\lib\junit5-rt.jar;D:\DIE Software\IntelliJU\plugins\junit\lib\junit-rt.jar;C:\Users\Xgarh\IdeaProjects\483Regex\out\test\RegexAssignment;C:\Users\Xgarh\IdeaProjects\483Regex\out\production\RegexAssignment;C:\Users\Xgarh\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.7.2\junit-jupiter-params-5.7.2.jar;C:\Users\Xgarh\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\Xgarh\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.7.2\junit-jupiter-api-5.7.2.jar;C:\Users\Xgarh\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\Xgarh\.m2\repository\org\junit\platform\junit-platform-commons\1.7.2\junit-platform-commons-1.7.2.jar" com.intellij.rt.junit.JUnitStarter -ideVersion5 -junit5 MainTest
+
+regex4NameOnRoster------------------------------
+"Last, First, M": Found match "Last, First, M" from index 0 to 14.
+"         Last, First, M": Found match "Last, First, M" from index 0 to 14.
+"Huynh, David, H": Found match "Huynh, David, H" from index 0 to 15.
+"Huynh, Gia-Bao, H": Found match "Huynh, Gia-Bao, H" from index 0 to 17.
+"Huynh, Gia-Bao (David), H": Found match "Huynh, Gia-Bao (David), H" from index 0 to 25.
+"Hills, De'Ante, B": Found match "Hills, De'Ante, B" from index 0 to 17.
+"Huynh, Gia-Bao (David), Huu": No match found.
+"Last, First, Middle": No match found.
+"Last First M": No match found.
+"Last, First M": No match found.
+"Last First, M": No match found.
+
+regex7CityState------------------------------
+"Tacoma, WA 12345": Found match "Tacoma, WA 12345" from index 0 to 16.
+"Tacoma, WA 12345": Found match "Tacoma, WA 12345" from index 0 to 16.
+"NYC, NY 12345-1234": Found match "NYC, NY 12345-1234" from index 0 to 18.
+"Tacoma, WA 98402": Found match "Tacoma, WA 98402" from index 0 to 16.
+"Tacoma, WA 98402-123": No match found.
+"Seattle, CA 71123": Found match "Seattle, CA 71123" from index 0 to 17.
+"Tacoma,WA 12345-": No match found.
+"Tacoma, WA 1234": No match found.
+"Tacoma, WA 123456": No match found.
+"Tacoma WA 12345": No match found.
+"Tacoma, WA 1234-1234": No match found.
+"Tacoma, WA 12345-12345": No match found.
+"Tacoma, WZ 12345": No match found.
+
+regex10URL------------------------------
+"https://www.google.com": Found match "https://www.google.com" from index 0 to 22.
+"https://www.google.com/": Found match "https://www.google.com/" from index 0 to 23.
+"www.google.com": Found match "www.google.com" from index 0 to 14.
+"www.google.com/": Found match "www.google.com/" from index 0 to 15.
+"https://www.regular-expressions.info/quickstart.html": Found match "https://www.regular-expressions.info/quickstart.html" from index 0 to 52.
+"https://docs.oracle.com/javase/tutorial/essential/regex/bounds.html": Found match "https://docs.oracle.com/javase/tutorial/essential/regex/bounds.html" from index 0 to 67.
+"https://canvas.uw.edu/courses/1642545/assignments/8223051": Found match "https://canvas.uw.edu/courses/1642545/assignments/8223051" from index 0 to 57.
+"https//canvas.uw.edu/courses/1642545/assignments/8223051": No match found.
+"https:/canvas.uw.edu/courses/1642545/assignments/8223051": No match found.
+"https:/canvas.uw.edu/courses/1642545/assignments//8223051": No match found.
+"https:canvas.uw.edu/courses/1642545/assignments/8223051": No match found.
+"https:canvas.uw.edu/courses?": No match found.
+"https://wwwgooglecom": No match found.
+"wwwgooglecom": No match found.
+"//:": No match found.
+"www": No match found.
+"google.com": Found match "google.com" from index 0 to 10.
+"https://cfb3-tcss450-labs-2021sp.herokuapp.com/doc/#api-Phish-GetPhishBlogGet": Found match "https://cfb3-tcss450-labs-2021sp.herokuapp.com/doc/#api-Phish-GetPhishBlogGet" from index 0 to 77.
+"https://cfb3-tcss450-labs-2021sp.herokuapp.com/#doc/#api-Phish-GetPhishBlogGet": No match found.
+"https://phishnet.api-docs.io/v3/blog/blog-get": Found match "https://phishnet.api-docs.io/v3/blog/blog-get" from index 0 to 45.
+"https://cfb3-tcss450-labs-2021sp.herokuapp.com/phish/blog/get?message=wow": Found match "https://cfb3-tcss450-labs-2021sp.herokuapp.com/phish/blog/get?message=wow" from index 0 to 73.
+"https://cfb3-tcss450-labs-2021sp.herokuapp.com/phish/blog/get?message=wow&test=2929": Found match "https://cfb3-tcss450-labs-2021sp.herokuapp.com/phish/blog/get?message=wow&test=2929" from index 0 to 83.
+"https://cfb3-tcss450-labs-2021sp.herokuapp.com/phish/blog/get?message=": No match found.
+
+regex5Date------------------------------
+"01-01-2023": Found match "01-01-2023" from index 0 to 10.
+"01/01/2023": Found match "01/01/2023" from index 0 to 10.
+"1-1-2023": Found match "1-1-2023" from index 0 to 8.
+"1/1/2023": Found match "1/1/2023" from index 0 to 8.
+"02/29/2001": Found match "02/29/2001" from index 0 to 10.
+"04/31/2001": Found match "04/31/2001" from index 0 to 10.
+"4/30/2001": Found match "4/30/2001" from index 0 to 9.
+"13/1/2023": No match found.
+"12/32/2023": No match found.
+"99/99/2023": No match found.
+"0/0/2023": No match found.
+"1-1/2023": No match found.
+"1/1-2023": No match found.
+
+regex12IonOdd------------------------------
+"ion": Found match "ion" from index 0 to 3.
+"quion": Found match "quion" from index 0 to 5.
+"million": Found match "million" from index 0 to 7.
+"bruhion": Found match "bruhion" from index 0 to 7.
+"wWOWOWOowwion": Found match "wWOWOWOowwion" from index 0 to 13.
+"Trillion": No match found.
+"POTION": No match found.
+"lion": No match found.
+"ow ion": No match found.
+"ow-ion": No match found.
+"ioningy": No match found.
+
+regex6HouseAddress------------------------------
+"910 S 77nd St": Found match "910 S 77nd St" from index 0 to 13.
+"910 S. 77nd St.": Found match "910 S. 77nd St." from index 0 to 15.
+"910 S. 77nd Blvd.": Found match "910 S. 77nd Blvd." from index 0 to 17.
+"910 s. 77nd blvd": Found match "910 s. 77nd blvd" from index 0 to 16.
+"84 South Rock Maple Ave.": Found match "84 South Rock Maple Ave." from index 0 to 24.
+"84 South Rock Maple Ave.": Found match "84 South Rock Maple Ave." from index 0 to 24.
+"84 South Rock Maple Avenue": Found match "84 South Rock Maple Avenue" from index 0 to 26.
+"84 South Rock Maple Aven.": No match found.
+"South Rock Maple Ave": No match found.
+"2134 E Cool 21St": No match found.
+"345 road": No match found.
+"345road st": No match found.
+
+regex1SSN------------------------------
+"123-12-1234": Found match "123-12-1234" from index 0 to 11.
+"123121234": Found match "123121234" from index 0 to 9.
+"123 12 1234": Found match "123 12 1234" from index 0 to 11.
+"829-59-9213": Found match "829-59-9213" from index 0 to 11.
+"999-99-9999": Found match "999-99-9999" from index 0 to 11.
+"023-01-0001": Found match "023-01-0001" from index 0 to 11.
+"          123-12-1234": Found match "123-12-1234" from index 0 to 11.
+"12D-12-1234": No match found.
+"123-1D-1234": No match found.
+"123-12-12a4": No match found.
+"1234-12-1234": No match found.
+"123-123-1234": No match found.
+"123-12-12345": No match found.
+"1234121234": No match found.
+"1234 123 12345": No match found.
+"1 234-12-1234": No match found.
+"123-121234": No match found.
+"12312-1234": No match found.
+"123-00-1234": No match found.
+"123-10-0000": No match found.
+
+regex9USMoney------------------------------
+"$123,456,789.23": Found match "$123,456,789.23" from index 0 to 15.
+"123,456,789.23": Found match "123,456,789.23" from index 0 to 14.
+"$123456789.23": Found match "$123456789.23" from index 0 to 13.
+"$123456,789.23": No match found.
+"$123,456789.23": No match found.
+"$23,456,789.23": Found match "$23,456,789.23" from index 0 to 14.
+"$2,456,789.23": Found match "$2,456,789.23" from index 0 to 13.
+"$456,789.23": Found match "$456,789.23" from index 0 to 11.
+"$56,789.23": Found match "$56,789.23" from index 0 to 10.
+"$6,789.23": Found match "$6,789.23" from index 0 to 9.
+"$789.23": Found match "$789.23" from index 0 to 7.
+"$89.23": Found match "$89.23" from index 0 to 6.
+"$9.23": Found match "$9.23" from index 0 to 5.
+"$0.23": Found match "$0.23" from index 0 to 5.
+"$1,000": Found match "$1,000" from index 0 to 6.
+"$1,000.0": No match found.
+"$123,456,789.2": No match found.
+"$123,45,789.23": No match found.
+"$123,456,78.23": No match found.
+"$0.23": Found match "$0.23" from index 0 to 5.
+"$.23": Found match "$.23" from index 0 to 4.
+"$wasdw.23": No match found.
+
+regex11Password------------------------------
+"Wasd123456!": Found match "Wasd123456!" from index 0 to 11.
+"I'mSupeRC00l": Found match "I'mSupeRC00l" from index 0 to 12.
+"AmaZinGCoolPass018287*!,": Found match "AmaZinGCoolPass018287*!," from index 0 to 24.
+"IAm.TheM1n": Found match "IAm.TheM1n" from index 0 to 10.
+"IAm.TheMAXIMUMMMMMMMMMMWMWMWMmmmWW12345as": Found match "IAm.TheMAXIMUMMMMMMMMMMWMWMWMmmmWW12345as" from index 0 to 41.
+"I1mSupeRC00l": No match found.
+"I'mSupeRcool": No match found.
+"IAm.TheM1n2343 sdfg345 346 rtrgf d56": No match found.
+"IAm.TheM1": No match found.
+"wasd123456!": No match found.
+"Wasdwasdwasd123456!": No match found.
+"1": No match found.
+"www.google.com": No match found.
+"www.GoogLe.com/123": Found match "www.GoogLe.com/123" from index 0 to 18.
+
+regex8MilTime------------------------------
+"0000": Found match "0000" from index 0 to 4.
+"0500": Found match "0500" from index 0 to 4.
+"1000": Found match "1000" from index 0 to 4.
+"1500": Found match "1500" from index 0 to 4.
+"2359": Found match "2359" from index 0 to 4.
+"500": No match found.
+"0060": No match found.
+"2400": No match found.
+"12450": No match found.
+"17 30": No match found.
+
+regex2USPhone------------------------------
+"2531231234": Found match "2531231234" from index 0 to 10.
+"(253)123-1234": Found match "(253)123-1234" from index 0 to 13.
+"(253123-1234": Found match "(253123-1234" from index 0 to 12.
+"253)123-1234": Found match "253)123-1234" from index 0 to 12.
+"253123-1234": Found match "253123-1234" from index 0 to 11.
+"253 123-1234": Found match "253 123-1234" from index 0 to 12.
+"(253)1231234": Found match "(253)1231234" from index 0 to 12.
+"(253)12341234": No match found.
+"253 123 a234": No match found.
+"253 1a3 1234": No match found.
+"253a123Z1234": No match found.
+"2t31231234": No match found.
+"1 253 123 1234": Found match "1 253 123 1234" from index 0 to 14.
+
+regex3Email------------------------------
+"bruh@gmail.com": Found match "bruh@gmail.com" from index 0 to 14.
+"a@b.c.d": Found match "a@b.c.d" from index 0 to 7.
+"a@b.c": Found match "a@b.c" from index 0 to 5.
+"bruh@gmail.com.gov.co": Found match "bruh@gmail.com.gov.co" from index 0 to 21.
+"xgarhontx123.coolbeans@gmail.com.gov.co": Found match "xgarhontx123.coolbeans@gmail.com.gov.co" from index 0 to 39.
+"bruh@gmail.com.gov.co.": No match found.
+"b@gmail.com": Found match "b@gmail.com" from index 0 to 11.
+"bruh@gmail.": No match found.
+"@gmail.com": No match found.
+"bruhgmail.com": No match found.
+"bruh@.com": No match found.
+"bruhgmail.com": No match found.
+"&@gmail.com": No match found.
+"!bruh@gmail.com": No match found.
+"bruh$@gmail.com": No match found.
+"br!!uh@gmail.com": No match found.
+
+Process finished with exit code 0
